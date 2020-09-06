@@ -74,6 +74,13 @@ public class PhysicsObject : MonoBehaviour
                         currentNormal.x = 0;
                     }
                 }
+
+                float Projection = Vector2.Dot(velocity, currentNormal);
+
+                if(Projection < 0)
+                {
+                    velocity = velocity - Projection * currentNormal;
+                }
             }
             
         }
